@@ -1,0 +1,23 @@
+<div class="container col-8 mt-5 mb-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Last Name</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @members.order(id: :asc).each do |x| %>
+        <tr scope="row">
+          <td><%= x.last_name %></a></td>
+          <td><%= x.name %></td>
+          <td><%= x.date %></td>
+          <td> <a class="btn btn-primary" href="<%= edit_member_path(x.id) %>" role="button">Edit</a> </td>
+          <td> <a class="btn btn-danger" href="<%= member_path(x.id) %>" role="button" data-method="DELETE" data-confirm="Are you sure ?">Delete</a> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <table>
+</div>
